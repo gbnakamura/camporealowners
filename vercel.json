@@ -2,6 +2,15 @@
   "installCommand": "npm install -g pnpm@10.4.1 && pnpm install",
   "buildCommand": "pnpm run build",
   "outputDirectory": "dist/public",
+  "headers": [
+    {
+      "source": "/(.*)\\.pdf",
+      "headers": [
+        { "key": "Content-Disposition", "value": "inline" },
+        { "key": "Content-Type", "value": "application/pdf" }
+      ]
+    }
+  ],
   "rewrites": [
     { "source": "/(.*)", "destination": "/index.html" }
   ]
