@@ -1,0 +1,174 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* ── FONTS ── */
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-teal: var(--teal);
+  --color-teal-light: var(--teal-light);
+  --color-teal-dark: var(--teal-dark);
+}
+
+:root {
+  --radius: 0.5rem;
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.2 0.02 240);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.2 0.02 240);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.2 0.02 240);
+  --primary: oklch(0.54 0.12 180);
+  --primary-foreground: oklch(1 0 0);
+  --secondary: oklch(0.96 0.02 180);
+  --secondary-foreground: oklch(0.3 0.05 180);
+  --muted: oklch(0.97 0.005 240);
+  --muted-foreground: oklch(0.55 0.02 240);
+  --accent: oklch(0.96 0.03 180);
+  --accent-foreground: oklch(0.3 0.08 180);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.985 0 0);
+  --border: oklch(0.92 0.005 240);
+  --input: oklch(0.92 0.005 240);
+  --ring: oklch(0.54 0.12 180);
+  /* Custom brand tokens */
+  --teal: #00897B;
+  --teal-light: #E0F2F1;
+  --teal-dark: #00695C;
+  --slate-dark: #1E293B;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Space Grotesk', sans-serif;
+  }
+  button:not(:disabled),
+  [role="button"]:not([aria-disabled="true"]),
+  [type="button"]:not(:disabled),
+  [type="submit"]:not(:disabled),
+  a[href],
+  select:not(:disabled) {
+    @apply cursor-pointer;
+  }
+}
+
+@layer components {
+  .container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  .flex {
+    min-height: 0;
+    min-width: 0;
+  }
+  @media (min-width: 640px) {
+    .container {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+  }
+  @media (min-width: 1024px) {
+    .container {
+      padding-left: 2rem;
+      padding-right: 2rem;
+      max-width: 1280px;
+    }
+  }
+
+  /* ── Brand utilities ── */
+  .text-teal { color: var(--teal); }
+  .bg-teal { background-color: var(--teal); }
+  .bg-teal-light { background-color: var(--teal-light); }
+  .border-teal { border-color: var(--teal); }
+
+  /* ── Section label ── */
+  .section-label {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--teal);
+  }
+
+  /* ── Teal left-border card ── */
+  .teal-card {
+    border-left: 3px solid var(--teal);
+    background: var(--teal-light);
+    padding: 1.25rem 1.5rem;
+    border-radius: 0 0.5rem 0.5rem 0;
+  }
+
+  /* ── Hover lift ── */
+  .hover-lift {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .hover-lift:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 32px rgba(0, 137, 123, 0.15);
+  }
+
+  /* ── Smooth scroll ── */
+  html { scroll-behavior: smooth; }
+
+  /* ── Language toggle ── */
+  .lang-pill {
+    display: inline-flex;
+    align-items: center;
+    background: oklch(0.97 0.005 240);
+    border-radius: 9999px;
+    padding: 2px;
+    gap: 2px;
+  }
+  .lang-pill button {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 4px 12px;
+    border-radius: 9999px;
+    transition: all 0.2s ease;
+    border: none;
+    background: transparent;
+    color: oklch(0.55 0.02 240);
+  }
+  .lang-pill button.active {
+    background: var(--teal);
+    color: white;
+  }
+}
