@@ -10,6 +10,7 @@ import ObjectivesSection from '@/components/ObjectivesSection';
 import ProgrammeSection from '@/components/ProgrammeSection';
 import MissionSection from '@/components/MissionSection';
 import ContactSection from '@/components/ContactSection';
+import PortalTeaser from '@/components/PortalTeaser';
 import ProxyModal from '@/components/ProxyModal';
 
 export default function Home() {
@@ -27,6 +28,7 @@ export default function Home() {
       <ObjectivesSection t={t} />
       <ProgrammeSection t={t} />
       <MissionSection t={t} />
+      <PortalTeaser t={t} />
       <ContactSection t={t} onOpenProxy={() => setProxyOpen(true)} />
       <ProxyModal open={proxyOpen} onClose={() => setProxyOpen(false)} lang={lang} />
     </div>

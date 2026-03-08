@@ -49,7 +49,7 @@ export default function CommitteeSection({ t }: CommitteeProps) {
         </motion.div>
 
         {/* Member cards — 3 columns max, large cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6 max-w-5xl mx-auto">
           {t.committee.members.map((member, i) => (
             <motion.div
               key={member.name}
@@ -61,8 +61,8 @@ export default function CommitteeSection({ t }: CommitteeProps) {
             >
               {/* Photo */}
               <div
-                className="w-full rounded-2xl overflow-hidden mb-5 shadow-lg relative"
-                style={{ aspectRatio: '1/1' }}
+                className="w-full rounded-2xl overflow-hidden mb-4 shadow-md relative"
+                style={{ aspectRatio: '1/1', maxWidth: '160px', margin: '0 auto 1rem' }}
               >
                 <img
                   src={HEADSHOTS[i]}
@@ -85,13 +85,13 @@ export default function CommitteeSection({ t }: CommitteeProps) {
 
               {/* Name & role */}
               <span
-                className="font-bold text-gray-900 text-lg leading-snug mb-2"
+                className="font-bold text-gray-900 text-sm leading-snug mb-1.5"
                 style={{ fontFamily: 'Space Grotesk, sans-serif' }}
               >
                 {member.name}
               </span>
               <span
-                className="text-sm leading-tight px-4 py-1.5 rounded-full"
+                className="text-xs leading-tight px-3 py-1 rounded-full"
                 style={{
                   fontFamily: 'Inter, sans-serif',
                   color: 'var(--teal-dark)',

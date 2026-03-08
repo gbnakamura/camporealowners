@@ -167,6 +167,21 @@ export const content = {
       quote: 'To provide financial transparency, clear and accountable communication, professional and service-oriented management, responsible stewardship of condominium finances, and the long-term protection and enhancement of our property values — <strong>always acting in the collective interest of all Owners.</strong>',
       disclaimer: 'This proposal represents a forward-looking vision for Campo Real based on owner perspectives. It is offered with respect for the work of the current Administration and in the spirit of open, democratic discussion among owners.',
     },
+    portal: {
+      label: 'Coming Soon',
+      title: 'Your Owners Portal',
+      subtitle: 'If elected, one of our first commitments is to build a dedicated digital portal for all Campo Real owners — a single place to stay informed, engaged, and connected.',
+      badge: 'In Development',
+      sections: [
+        { icon: 'calendar', title: 'Community Events', desc: 'Stay up to date with social events, owner meetings, and resort activities.' },
+        { icon: 'hotel', title: 'Hotel Events', desc: 'Browse upcoming hotel events, offers, and partner programmes.' },
+        { icon: 'file-text', title: 'AGM Documents', desc: 'Access all AGM minutes, resolutions, financial reports, and audits.' },
+        { icon: 'shield', title: 'Insurance Policies', desc: 'View your condominium insurance documents and coverage details.' },
+        { icon: 'message-square', title: 'Suggestions', desc: 'Submit ideas and feedback directly to the Administration Committee.' },
+        { icon: 'user', title: 'My Account', desc: 'Manage your owner profile, payments, and property information.' },
+        { icon: 'map', title: 'Planning Info', desc: 'Access planning permissions, infrastructure projects, and development updates.' },
+      ],
+    },
     contact: {
       label: 'Contact',
       title: 'Your Vote Matters',
@@ -343,6 +358,21 @@ export const content = {
       label: 'A Nossa Missão',
       quote: 'Assegurar transparência financeira, uma comunicação clara e responsável, uma gestão profissional e orientada para o serviço, uma administração prudente das finanças do condomínio e a proteção e valorização sustentada, a longo prazo, do valor das nossas propriedades — <strong>atuando sempre no interesse coletivo de todos os Proprietários.</strong>',
       disclaimer: 'Esta proposta representa uma visão orientada para o futuro do Campo Real, baseada na perspetiva dos proprietários. É apresentada com respeito pelo trabalho da atual Administração e num espírito de diálogo aberto e democrático entre os proprietários.',
+    },
+    portal: {
+      label: 'Em Breve',
+      title: 'O Seu Portal de Proprietários',
+      subtitle: 'Se eleitos, um dos nossos primeiros compromissos é criar um portal digital dedicado a todos os proprietários do Campo Real — um único lugar para se manter informado, envolvido e ligado à comunidade.',
+      badge: 'Em Desenvolvimento',
+      sections: [
+        { icon: 'calendar', title: 'Eventos da Comunidade', desc: 'Fique a par de eventos sociais, reuniões de proprietários e atividades do resort.' },
+        { icon: 'hotel', title: 'Eventos do Hotel', desc: 'Consulte os próximos eventos do hotel, ofertas e programas de parceiros.' },
+        { icon: 'file-text', title: 'Documentos da AGM', desc: 'Aceda a todas as atas, resoluções, relatórios financeiros e auditorias.' },
+        { icon: 'shield', title: 'Apólices de Seguro', desc: 'Consulte os documentos de seguro do condomínio e os detalhes de cobertura.' },
+        { icon: 'message-square', title: 'Sugestões', desc: 'Envie ideias e feedback diretamente ao Comité de Administração.' },
+        { icon: 'user', title: 'A Minha Conta', desc: 'Gira o seu perfil de proprietário, pagamentos e informações da propriedade.' },
+        { icon: 'map', title: 'Informação de Planeamento', desc: 'Aceda a licenças de construção, projetos de infraestrutura e atualizações de desenvolvimento.' },
+      ],
     },
     contact: {
       label: 'Contacto',
