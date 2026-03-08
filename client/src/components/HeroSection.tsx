@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { ChevronDown, Mail } from 'lucide-react';
+import { ChevronDown, FileDown } from 'lucide-react';
 
 const HERO_IMAGE = 'https://d2xsxph8kpxj0f.cloudfront.net/310519663325274117/NKWQ6gJfFXw7eKcFKjSQJm/campo1_588fc9dd.jpg';
 
@@ -13,9 +13,10 @@ interface HeroProps {
       ctaSub: string;
     };
   };
+  onOpenProxy: () => void;
 }
 
-export default function HeroSection({ t }: HeroProps) {
+export default function HeroSection({ t, onOpenProxy }: HeroProps) {
   return (
     <section
       id="hero"
@@ -86,14 +87,14 @@ export default function HeroSection({ t }: HeroProps) {
           transition={{ duration: 0.7, delay: 0.45, ease: 'easeOut' }}
           className="flex flex-col sm:flex-row gap-4 justify-center items-center"
         >
-          <a
-            href="#contact"
+          <button
+            onClick={onOpenProxy}
             className="inline-flex items-center gap-2.5 px-8 py-3.5 rounded-full text-sm font-semibold text-white transition-all duration-200 hover:opacity-90 hover:shadow-xl hover:scale-105"
             style={{ background: 'var(--teal)', fontFamily: 'Space Grotesk, sans-serif' }}
           >
-            <Mail size={16} />
+            <FileDown size={16} />
             {t.hero.cta}
-          </a>
+          </button>
           <a
             href="#background"
             className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full text-sm font-semibold text-white border border-white/40 hover:bg-white/15 transition-all duration-200"

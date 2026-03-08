@@ -14,9 +14,19 @@ interface ContactProps {
       questionNote: string;
     };
   };
+  onOpenProxy: () => void;
 }
 
-export default function ContactSection({ t }: ContactProps) {
+const cardVariants = {
+  hidden: { opacity: 0, y: 24 },
+  visible: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.55, delay: i * 0.12, ease: 'easeOut' as const },
+  }),
+};
+
+export default function ContactSection({ t, onOpenProxy }: ContactProps) {
   return (
     <section id="contact" className="py-28" style={{ background: 'var(--teal-light)' }}>
       <div className="container mx-auto px-4 lg:px-8">
@@ -47,43 +57,88 @@ export default function ContactSection({ t }: ContactProps) {
             {t.contact.body}
           </p>
 
-          {/* CTA card */}
-          <div className="bg-white rounded-3xl p-10 shadow-md">
-            <div
-              className="w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-6"
-              style={{ background: 'rgba(0,137,123,0.1)' }}
-            >
-              <FileText size={28} style={{ color: 'var(--teal)' }} />
-            </div>
+          {/* Two-card row */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
 
-            <h3
-              className="font-bold text-gray-900 text-xl mb-3"
-              style={{ fontFamily: 'Space Grotesk, sans-serif' }}
+            {/* Card 1 — Download Proxy Form */}
+            <motion.div
+              custom={0}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: '-60px' }}
+              variants={cardVariants}
+              className="bg-white rounded-3xl p-8 shadow-md flex flex-col items-center text-center"
             >
-              {t.contact.proxyBtn}
-            </h3>
-            <p
-              className="text-sm text-gray-500 mb-8 leading-relaxed"
-              style={{ fontFamily: 'Inter, sans-serif' }}
-            >
-              {t.contact.proxyNote}
-            </p>
+              <div
+                className="w-14 h-14 rounded-2xl flex items-center justify-center mb-5"
+                style={{ background: 'rgba(0,137,123,0.1)' }}
+              >
+                <FileText size={26} style={{ color: 'var(--teal)' }} />
+              </div>
+              <h3
+                className="font-bold text-gray-900 text-lg mb-2"
+                style={{ fontFamily: 'Space Grotesk, sans-serif' }}
+              >
+                {t.contact.proxyBtn}
+              </h3>
+              <p
+                className="text-sm text-gray-500 mb-7 leading-relaxed flex-1"
+                style={{ fontFamily: 'Inter, sans-serif' }}
+              >
+                {t.contact.proxyNote}
+              </p>
+              <button
+                onClick={onOpenProxy}
+                className="inline-flex items-center gap-2 px-7 py-3 rounded-full text-white font-semibold text-sm transition-all duration-200 hover:opacity-90 hover:shadow-lg hover:scale-105"
+                style={{ background: 'var(--teal)', fontFamily: 'Space Grotesk, sans-serif' }}
+              >
+                <FileText size={15} />
+                {t.contact.proxyBtn}
+              </button>
+            </motion.div>
 
-            <a
-              href={`mailto:${t.contact.email}?subject=Proxy Form Request`}
-              className="inline-flex items-center gap-3 px-10 py-4 rounded-full text-white font-semibold text-base transition-all duration-200 hover:opacity-90 hover:shadow-xl hover:scale-105"
-              style={{ background: 'var(--teal)', fontFamily: 'Space Grotesk, sans-serif' }}
+            {/* Card 2 — Email for questions */}
+            <motion.div
+              custom={1}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: '-60px' }}
+              variants={cardVariants}
+              className="bg-white rounded-3xl p-8 shadow-md flex flex-col items-center text-center"
             >
-              <Mail size={18} />
-              {t.contact.email}
-            </a>
+              <div
+                className="w-14 h-14 rounded-2xl flex items-center justify-center mb-5"
+                style={{ background: 'rgba(0,137,123,0.1)' }}
+              >
+                <Mail size={26} style={{ color: 'var(--teal)' }} />
+              </div>
+              <h3
+                className="font-bold text-gray-900 text-lg mb-2"
+                style={{ fontFamily: 'Space Grotesk, sans-serif' }}
+              >
+                {t.contact.questionNote}
+              </h3>
+              <p
+                className="text-sm text-gray-500 mb-7 leading-relaxed flex-1"
+                style={{ fontFamily: 'Inter, sans-serif' }}
+              >
+                {t.contact.email}
+              </p>
+              <a
+                href={`mailto:${t.contact.email}`}
+                className="inline-flex items-center gap-2 px-7 py-3 rounded-full font-semibold text-sm transition-all duration-200 hover:shadow-lg hover:scale-105 border-2"
+                style={{
+                  color: 'var(--teal)',
+                  borderColor: 'var(--teal)',
+                  fontFamily: 'Space Grotesk, sans-serif',
+                  background: 'transparent',
+                }}
+              >
+                <Mail size={15} />
+                {t.contact.email}
+              </a>
+            </motion.div>
 
-            <p
-              className="text-xs text-gray-400 mt-5"
-              style={{ fontFamily: 'Inter, sans-serif' }}
-            >
-              {t.contact.questionNote}
-            </p>
           </div>
         </motion.div>
       </div>

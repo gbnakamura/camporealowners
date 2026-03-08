@@ -14,9 +14,10 @@ interface NavbarProps {
       cta: string;
     };
   };
+  onOpenProxy: () => void;
 }
 
-export default function Navbar({ t }: NavbarProps) {
+export default function Navbar({ t, onOpenProxy }: NavbarProps) {
   const { lang, setLang } = useLang();
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -98,14 +99,14 @@ export default function Navbar({ t }: NavbarProps) {
               </button>
             </div>
 
-            {/* CTA button */}
-            <a
-              href="#contact"
+            {/* CTA button — opens proxy modal */}
+            <button
+              onClick={onOpenProxy}
               className="hidden lg:inline-flex items-center px-4 py-2 rounded-full text-sm font-semibold text-white transition-all duration-200 hover:opacity-90 hover:shadow-md"
               style={{ background: 'var(--teal)', fontFamily: 'Space Grotesk, sans-serif' }}
             >
               {t.nav.cta}
-            </a>
+            </button>
 
             {/* Mobile menu toggle */}
             <button
@@ -133,14 +134,13 @@ export default function Navbar({ t }: NavbarProps) {
                 {l.label}
               </a>
             ))}
-            <a
-              href="#contact"
+            <button
               className="mt-2 inline-flex items-center justify-center px-4 py-2 rounded-full text-sm font-semibold text-white"
               style={{ background: 'var(--teal)', fontFamily: 'Space Grotesk, sans-serif' }}
-              onClick={() => setMenuOpen(false)}
+              onClick={() => { setMenuOpen(false); onOpenProxy(); }}
             >
               {t.nav.cta}
-            </a>
+            </button>
           </div>
         </div>
       )}

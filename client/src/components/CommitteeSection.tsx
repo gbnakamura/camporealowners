@@ -1,12 +1,7 @@
 import { motion } from 'framer-motion';
 
-const HEADSHOTS = [
-  'https://d2xsxph8kpxj0f.cloudfront.net/310519663325274117/NKWQ6gJfFXw7eKcFKjSQJm/headshot1_3bcd09e0.jpg',
-  'https://d2xsxph8kpxj0f.cloudfront.net/310519663325274117/NKWQ6gJfFXw7eKcFKjSQJm/headshot2_918c0989.jpg',
-  'https://d2xsxph8kpxj0f.cloudfront.net/310519663325274117/NKWQ6gJfFXw7eKcFKjSQJm/headshot3_46d19141.jpg',
-  'https://d2xsxph8kpxj0f.cloudfront.net/310519663325274117/NKWQ6gJfFXw7eKcFKjSQJm/headshot4_3e2440b4.jpg',
-  'https://d2xsxph8kpxj0f.cloudfront.net/310519663325274117/NKWQ6gJfFXw7eKcFKjSQJm/headshot5_d221320a.webp',
-];
+const PLACEHOLDER_AVATAR = 'https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp&f=y&s=400';
+const HEADSHOTS = Array(5).fill(PLACEHOLDER_AVATAR);
 
 interface CommitteeProps {
   t: {
