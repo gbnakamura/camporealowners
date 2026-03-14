@@ -1,36 +1,29 @@
-import { useState } from 'react';
-import { useLang } from '@/contexts/LanguageContext';
-import { content } from '@/lib/content';
-import Navbar from '@/components/Navbar';
-import HeroSection from '@/components/HeroSection';
-import BackgroundSection from '@/components/BackgroundSection';
-import CommitteeSection from '@/components/CommitteeSection';
-import AssessmentSection from '@/components/AssessmentSection';
-import ObjectivesSection from '@/components/ObjectivesSection';
-import ProgrammeSection from '@/components/ProgrammeSection';
-import MissionSection from '@/components/MissionSection';
-import ContactSection from '@/components/ContactSection';
-import PortalTeaser from '@/components/PortalTeaser';
-import ProxyModal from '@/components/ProxyModal';
-
 export default function Home() {
-  const { lang } = useLang();
-  const t = content[lang];
-  const [proxyOpen, setProxyOpen] = useState(false);
-
   return (
-    <div className="min-h-screen bg-white">
-      <Navbar t={t} onOpenProxy={() => setProxyOpen(true)} />
-      <HeroSection t={t} onOpenProxy={() => setProxyOpen(true)} />
-      <BackgroundSection t={t} />
-      <CommitteeSection t={t} />
-      <AssessmentSection t={t} />
-      <ObjectivesSection t={t} />
-      <ProgrammeSection t={t} />
-      <MissionSection t={t} />
-      <PortalTeaser t={t} />
-      <ContactSection t={t} onOpenProxy={() => setProxyOpen(true)} />
-      <ProxyModal open={proxyOpen} onClose={() => setProxyOpen(false)} lang={lang} />
+    <div style={{
+      minHeight: '100vh',
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      justifyContent: 'center',
+      background: '#0a3d3d',
+      color: 'white',
+      fontFamily: 'Space Grotesk, sans-serif',
+      textAlign: 'center',
+      padding: '2rem',
+    }}>
+      <div style={{
+        width: 56, height: 56, borderRadius: 14,
+        background: '#00897B', display: 'flex',
+        alignItems: 'center', justifyContent: 'center',
+        fontSize: 22, fontWeight: 700, marginBottom: 24,
+      }}>CR</div>
+      <h1 style={{ fontSize: '2rem', fontWeight: 700, marginBottom: 12 }}>
+        Campo Real AGM 2026
+      </h1>
+      <p style={{ color: 'rgba(255,255,255,0.65)', maxWidth: 400, lineHeight: 1.6 }}>
+        We'll be back shortly. Thank you for your patience.
+      </p>
     </div>
   );
 }
