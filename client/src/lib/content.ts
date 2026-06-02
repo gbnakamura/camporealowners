@@ -18,7 +18,7 @@ export const content = {
       subtitle: 'Objectives, Ideas & Proposal — offering owners a clear choice, a structured plan, and a governance approach fully aligned with our regulating documents.',
       meetingDetails: [
         'Annual General Meeting of the 2 Condominiums of the Campo Real Resort',
-        'Aldeamento Turistico (AT) and Conjunto Turistice CT',
+        'Aldeamento Turistico (AT) and Conjunto Turistico (CT)',
         'Will be held on 18th of June 2026 at 3.00pm at',
         'The Grupo Despattive da Casa do Povo do Turcital, Rua Dr. Carlos Ahrends, No. 29, 2565-801, Turgital Portugal',
       ],
@@ -282,7 +282,7 @@ export const content = {
       subtitle: 'Objectivos, Ideias & Projecto — oferecendo aos proprietários uma escolha clara, um plano estruturado e um modelo de governação plenamente alinhado com os nossos documentos reguladores.',
       meetingDetails: [
         'Annual General Meeting of the 2 Condominiums of the Campo Real Resort',
-        'Aldeamento Turistico (AT) and Conjunto Turistice CT',
+        'Aldeamento Turistico (AT) and Conjunto Turistico (CT)',
         'Will be held on 18th of June 2026 at 3.00pm at',
         'The Grupo Despattive da Casa do Povo do Turcital, Rua Dr. Carlos Ahrends, No. 29, 2565-801, Turgital Portugal',
       ],
