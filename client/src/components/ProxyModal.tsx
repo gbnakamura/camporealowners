@@ -2,7 +2,7 @@
  * ProxyModal — Campo Real AGM 2026
  * Design: Clean teal/white modal, Space Grotesk headings, Inter body.
  * Shows 4 proxy form options (EN/PT × Individual/Firm) as clickable cards.
- * PDFs open in a new tab via CDN URLs.
+ * PDFs open in a new tab from public assets.
  */
 
 import { useEffect } from 'react';
@@ -10,10 +10,10 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { X, User, Building2, ExternalLink } from 'lucide-react';
 
 const PROXY_URLS = {
-  enIndividual: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663325274117/NKWQ6gJfFXw7eKcFKjSQJm/proxy-en-individual_c809a07f.pdf',
-  enFirm:       'https://d2xsxph8kpxj0f.cloudfront.net/310519663325274117/NKWQ6gJfFXw7eKcFKjSQJm/proxy-en-firm_7536976e.pdf',
-  ptIndividual: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663325274117/NKWQ6gJfFXw7eKcFKjSQJm/proxy-pt-individual_17955521.pdf',
-  ptFirm:       'https://d2xsxph8kpxj0f.cloudfront.net/310519663325274117/NKWQ6gJfFXw7eKcFKjSQJm/proxy-pt-firm_f87cee85.pdf',
+  enIndividual: '/proxy-en-individual.pdf',
+  enFirm: '/proxy-en-firm.pdf',
+  ptIndividual: '/proxy-pt-individual.pdf',
+  ptFirm: '/proxy-pt-firm.pdf',
 };
 
 interface ProxyModalProps {

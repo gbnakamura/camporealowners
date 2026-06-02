@@ -30,7 +30,10 @@ export default function HeroSection({ t, onOpenProxy }: HeroProps) {
       />
       {/* Layered gradient: dark top for nav, lighter middle, dark bottom */}
       <div className="absolute inset-0" style={{
-        background: 'linear-gradient(to bottom, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.65) 100%)'
+        background: 'linear-gradient(to bottom, rgba(0,0,0,0.68) 0%, rgba(0,0,0,0.42) 38%, rgba(0,0,0,0.78) 100%)'
+      }} />
+      <div className="absolute inset-0" style={{
+        background: 'radial-gradient(ellipse at center, rgba(0,0,0,0.58) 0%, rgba(0,0,0,0.42) 38%, rgba(0,0,0,0.12) 72%)'
       }} />
 
       {/* Content — vertically centred, offset slightly upward */}
@@ -66,6 +69,7 @@ export default function HeroSection({ t, onOpenProxy }: HeroProps) {
             fontFamily: 'Space Grotesk, sans-serif',
             letterSpacing: '-0.025em',
             fontSize: 'clamp(2.2rem, 5vw, 4rem)',
+            textShadow: '0 3px 22px rgba(0,0,0,0.55)',
           }}
         >
           {t.hero.title}
@@ -76,7 +80,11 @@ export default function HeroSection({ t, onOpenProxy }: HeroProps) {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3, ease: 'easeOut' }}
           className="text-white/80 max-w-xl mx-auto mb-10 leading-relaxed"
-          style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(0.95rem, 1.5vw, 1.1rem)' }}
+          style={{
+            fontFamily: 'Inter, sans-serif',
+            fontSize: 'clamp(0.95rem, 1.5vw, 1.1rem)',
+            textShadow: '0 2px 14px rgba(0,0,0,0.6)',
+          }}
         >
           {t.hero.subtitle}
         </motion.p>
