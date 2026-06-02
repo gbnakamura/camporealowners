@@ -19,7 +19,16 @@ const HEADSHOTS: Record<string, string> = {
 };
 
 const HEADSHOT_POSITIONS: Record<string, string> = {
+  'Diogo Vaz Martins': 'center center',
   'Casimiro Gonçalves': 'center 22%',
+};
+
+const HEADSHOT_TRANSFORMS: Record<string, string> = {
+  'Diogo Vaz Martins': 'scale(1.45)',
+};
+
+const HEADSHOT_TRANSFORM_ORIGINS: Record<string, string> = {
+  'Diogo Vaz Martins': 'center top',
 };
 
 interface CommitteeProps {
@@ -87,8 +96,14 @@ export default function CommitteeSection({ t }: CommitteeProps) {
                 <img
                   src={HEADSHOTS[member.name] ?? PLACEHOLDER_AVATAR}
                   alt={member.name}
-                  className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
-                  style={{ objectPosition: HEADSHOT_POSITIONS[member.name] ?? 'center top' }}
+                  className={`w-full h-full object-cover object-top transition-transform duration-500 ${
+                    member.name === 'Diogo Vaz Martins' ? '' : 'group-hover:scale-105'
+                  }`}
+                  style={{
+                    objectPosition: HEADSHOT_POSITIONS[member.name] ?? 'center top',
+                    transform: HEADSHOT_TRANSFORMS[member.name],
+                    transformOrigin: HEADSHOT_TRANSFORM_ORIGINS[member.name],
+                  }}
                 />
                 {/* Gradient at bottom for name overlay feel */}
                 <div
