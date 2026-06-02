@@ -10,6 +10,7 @@ interface NavbarProps {
       assessment: string;
       objectives: string;
       programme: string;
+      portal: string;
       contact: string;
       cta: string;
     };
@@ -34,6 +35,7 @@ export default function Navbar({ t, onOpenProxy }: NavbarProps) {
     { href: '#assessment', label: t.nav.assessment },
     { href: '#objectives', label: t.nav.objectives },
     { href: '#programme', label: t.nav.programme },
+    { href: '#portal', label: t.nav.portal },
     { href: '#contact', label: t.nav.contact },
   ];
 

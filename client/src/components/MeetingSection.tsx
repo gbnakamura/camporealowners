@@ -12,6 +12,7 @@ interface MeetingProps {
 
 export default function MeetingSection({ t }: MeetingProps) {
   const [title, condominiums, dateTime, venue] = t.hero.meetingDetails;
+  const [beforeEmail, afterEmail] = t.hero.meetingDisclaimer.split('camporealowners@gmail.com');
 
   return (
     <section className="bg-white pt-12 pb-4">
@@ -96,7 +97,15 @@ export default function MeetingSection({ t }: MeetingProps) {
               className="max-w-3xl text-sm font-medium leading-relaxed text-gray-700"
               style={{ fontFamily: 'Inter, sans-serif' }}
             >
-              {t.hero.meetingDisclaimer}
+              {beforeEmail}
+              <a
+                href="mailto:camporealowners@gmail.com"
+                className="font-bold underline underline-offset-2 transition-opacity hover:opacity-75"
+                style={{ color: 'var(--teal)' }}
+              >
+                camporealowners@gmail.com
+              </a>
+              {afterEmail}
             </p>
           </div>
           <p className="sr-only">{dateTime}</p>
