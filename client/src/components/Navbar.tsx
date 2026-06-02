@@ -59,7 +59,7 @@ export default function Navbar({ t, onOpenProxy }: NavbarProps) {
               }`}
               style={{ fontFamily: 'Space Grotesk, sans-serif' }}
             >
-              Campo Real AGM 2026
+              Campo Real Resort
             </span>
           </a>
 

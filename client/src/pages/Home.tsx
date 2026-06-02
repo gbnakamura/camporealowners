@@ -3,6 +3,7 @@ import { useLang } from '@/contexts/LanguageContext';
 import { content } from '@/lib/content';
 import Navbar from '@/components/Navbar';
 import HeroSection from '@/components/HeroSection';
+import MeetingSection from '@/components/MeetingSection';
 import BackgroundSection from '@/components/BackgroundSection';
 import CommitteeSection from '@/components/CommitteeSection';
 import AssessmentSection from '@/components/AssessmentSection';
@@ -22,6 +23,7 @@ export default function Home() {
     <div className="min-h-screen bg-white">
       <Navbar t={t} onOpenProxy={() => setProxyOpen(true)} />
       <HeroSection t={t} onOpenProxy={() => setProxyOpen(true)} />
+      <MeetingSection t={t} />
       <BackgroundSection t={t} />
       <CommitteeSection t={t} />
       <AssessmentSection t={t} />

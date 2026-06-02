@@ -157,7 +157,7 @@ export default function ContactSection({ t, onOpenProxy }: ContactProps) {
               className="text-sm font-semibold text-gray-700"
               style={{ fontFamily: 'Space Grotesk, sans-serif' }}
             >
-              Campo Real AGM 2026
+              Campo Real Resort
             </span>
           </div>
           <p
