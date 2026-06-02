@@ -164,7 +164,13 @@ export default function ContactSection({ t, onOpenProxy }: ContactProps) {
             className="text-xs text-gray-400 text-center"
             style={{ fontFamily: 'Inter, sans-serif' }}
           >
-            Alternative Administration Committee Proposal · camporealowners@gmail.com
+            Alternative Administration Committee Proposal ·{' '}
+            <a
+              href="mailto:camporealowners@gmail.com"
+              className="font-semibold underline underline-offset-2 transition-colors hover:text-teal-700"
+            >
+              camporealowners@gmail.com
+            </a>
           </p>
         </div>
       </div>
