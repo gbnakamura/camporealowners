@@ -1,7 +1,26 @@
 import { motion } from 'framer-motion';
+import { FileText } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from '@/components/ui/dialog';
 
 const PLACEHOLDER_AVATAR = 'https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp&f=y&s=400';
-const HEADSHOTS = Array(5).fill(PLACEHOLDER_AVATAR);
+const HEADSHOTS: Record<string, string> = {
+  'Andrew Gamble': '/headshots/andrew.jpeg',
+  'Diogo Vaz Martins': '/headshots/diogo.jpeg',
+  'André Vilas Boas': PLACEHOLDER_AVATAR,
+  'Clive J. Poorter': '/headshots/clive.jpeg',
+  'Casimiro Gonçalves': '/headshots/casimiro.jpeg',
+};
+
+const HEADSHOT_POSITIONS: Record<string, string> = {
+  'Casimiro Gonçalves': 'center 22%',
+};
 
 interface CommitteeProps {
   t: {
@@ -10,7 +29,8 @@ interface CommitteeProps {
       title: string;
       subtitle: string;
       support: string;
-      members: { name: string; role: string }[];
+      bioCta: string;
+      members: { name: string; role: string; bio: string[] }[];
     };
   };
 }
@@ -48,8 +68,8 @@ export default function CommitteeSection({ t }: CommitteeProps) {
           </span>
         </motion.div>
 
-        {/* Member cards — 3 columns max, large cards */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6 max-w-5xl mx-auto">
+        {/* Member cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-7 max-w-6xl mx-auto">
           {t.committee.members.map((member, i) => (
             <motion.div
               key={member.name}
@@ -65,9 +85,10 @@ export default function CommitteeSection({ t }: CommitteeProps) {
                 style={{ aspectRatio: '1/1', maxWidth: '160px', margin: '0 auto 1rem' }}
               >
                 <img
-                  src={HEADSHOTS[i]}
-                  alt={`${member.name} placeholder`}
+                  src={HEADSHOTS[member.name] ?? PLACEHOLDER_AVATAR}
+                  alt={member.name}
                   className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                  style={{ objectPosition: HEADSHOT_POSITIONS[member.name] ?? 'center top' }}
                 />
                 {/* Gradient at bottom for name overlay feel */}
                 <div
@@ -100,6 +121,49 @@ export default function CommitteeSection({ t }: CommitteeProps) {
               >
                 {member.role}
               </span>
+              <Dialog>
+                <DialogTrigger asChild>
+                  <Button
+                    variant="default"
+                    size="sm"
+                    className="mt-4 inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-xs font-semibold text-white transition-all duration-200 hover:scale-105 hover:opacity-90 hover:shadow-lg"
+                    style={{
+                      background: 'var(--teal)',
+                      fontFamily: 'Space Grotesk, sans-serif',
+                    }}
+                  >
+                    <FileText size={14} />
+                    {t.committee.bioCta}
+                  </Button>
+                </DialogTrigger>
+                <DialogContent className="max-h-[min(760px,calc(100vh-2rem))] overflow-y-auto sm:max-w-3xl">
+                  <DialogHeader className="pr-8">
+                    <DialogTitle
+                      className="text-2xl text-gray-900"
+                      style={{ fontFamily: 'Space Grotesk, sans-serif' }}
+                    >
+                      {member.name}
+                    </DialogTitle>
+                    <span
+                      className="text-sm font-medium"
+                      style={{
+                        fontFamily: 'Inter, sans-serif',
+                        color: 'var(--teal-dark)',
+                      }}
+                    >
+                      {member.role}
+                    </span>
+                  </DialogHeader>
+                  <div
+                    className="space-y-4 text-sm leading-relaxed text-gray-700"
+                    style={{ fontFamily: 'Inter, sans-serif' }}
+                  >
+                    {member.bio.map((paragraph) => (
+                      <p key={paragraph}>{paragraph}</p>
+                    ))}
+                  </div>
+                </DialogContent>
+              </Dialog>
             </motion.div>
           ))}
         </div>
